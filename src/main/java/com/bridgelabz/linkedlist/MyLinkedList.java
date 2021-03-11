@@ -39,20 +39,30 @@ public class MyLinkedList {
         this.head.setNext(myNode);
         myNode.setNext(newNode);
     }
+
     public INode pop() {
-        INode  tempNode = this.head;
+        INode tempNode = this.head;
         this.head = head.getNext();
         return tempNode;
     }
 
     public INode popLast() {
         INode tempNode = head;
-        while (!tempNode.getNext().equals(tail)){
+        while (!tempNode.getNext().equals(tail)) {
             tempNode = tempNode.getNext();
         }
         this.tail = tempNode;
         tempNode = null;
-        return tempNode ;
+        return tempNode;
+    }
+
+    public void search(INode myNode) {
+        INode tempNode = head;
+        while (tempNode.getNext() != myNode) {
+            tempNode = tempNode.getNext();
+        }
+        tempNode = tempNode.getNext();
+        System.out.println("Searched Element is: " + tempNode.getKey());
     }
 
     public void printMyNodes() {
