@@ -119,4 +119,27 @@ public class MyNodeTest {
                 myLinkedList.tail.equals(myThirdNode);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given3Number_ToInsert40After30__ShouldPassTheLinkedListTest() {
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(40);
+        MyNode<Integer> myFourthNode = new MyNode<>(70);
+
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.add(mySecondNode);
+        myLinkedList.add(myFirstNode);
+        myLinkedList.append(myFourthNode);
+        myLinkedList.search(mySecondNode);
+        myLinkedList.printMyNodes();
+        myLinkedList.insert(mySecondNode, myThirdNode);
+        myLinkedList.printMyNodes();
+
+        boolean result = myLinkedList.head.equals(myFirstNode) &&
+                myLinkedList.head.getNext().equals(mySecondNode) &&
+                myLinkedList.head.getNext().getNext().equals(myThirdNode) &&
+                myLinkedList.tail.equals(myFourthNode);
+        Assert.assertTrue(result);
+    }
 }
