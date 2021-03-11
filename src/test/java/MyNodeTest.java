@@ -142,4 +142,29 @@ public class MyNodeTest {
                 myLinkedList.tail.equals(myFourthNode);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given3Number_ToDeleteElement40__ShouldPassTheLinkedListTest() {
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(40);
+        MyNode<Integer> myFourthNode = new MyNode<>(70);
+
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.append(myFourthNode);
+        myLinkedList.printMyNodes();
+        myLinkedList.search(myThirdNode);
+        myLinkedList.printMyNodes();
+        myLinkedList.delete(myThirdNode);
+        myLinkedList.printMyNodes();
+        myLinkedList.size(myFirstNode);
+
+        boolean result = myLinkedList.head.equals(myFirstNode) &&
+                myLinkedList.head.getNext().equals(mySecondNode) &&
+                myLinkedList.tail.equals(myFourthNode);
+        Assert.assertTrue(result);
+    }
 }
